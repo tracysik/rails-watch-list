@@ -20,9 +20,12 @@ class ListsController < ApplicationController
     end
   end
 
+    #method/element not working = debug later
+
   def destroy
+    @list = List.find(params[:id])
     @list.destroy
-    redirect_to lists_path, status: :see_other
+    redirect_to list_path(@list), status: :see_other
   end
 
   private
@@ -35,5 +38,3 @@ end
 # #As a user, I can see all my movie lists
 # As a user, I can create a movie list
 # As a user, I can see the details of a movie list
-# As a user, I can bookmark a movie inside a movie list
-# # As a user, I can destroy a bookmark
